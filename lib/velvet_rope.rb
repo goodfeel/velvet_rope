@@ -10,6 +10,7 @@ module Redcarpet
         @extensions ||= {}
         @extensions[:highlight_syntax] = extensions.delete(:highlight_syntax) || false
         @extensions[:emoji] = extensions.delete(:emoji) || false
+        @extensions[:highlight_line_number] = extensions.delete(:highlight_line_number) || false
 
         # This is ugly, but is a workaround for Redcarpet not handling `super`
         # as it is a wrapper for the implementation written in C
