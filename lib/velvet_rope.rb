@@ -17,15 +17,15 @@ module Redcarpet
           self.class.send(:define_method, :block_code) do |code, language|
             if Pygments::Lexer.find_by_alias(language)
               if @extensions[:highlight_line_number]
-                Pygments.highlight(code, :lexer => language, options: { linespans: 'line' })
+                Pygments.highlight(code, lexer: language, options: { linespans: 'line' })
               else
-                Pygments.highlight(code, :lexer => language)
+                Pygments.highlight(code, lexer: language)
               end
             else
               if @extensions[:highlight_line_number]
                 Pygments.highlight(code, options: { linespans: 'line' })
               else
-                Pygments.highlight(code)
+                Pygments.highlight(code, options: { linespans: 'line' })
               end
             end
           end
